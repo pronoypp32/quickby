@@ -183,22 +183,27 @@ export default function CartPage() {
               <div className="bg-white rounded-xl shadow-lg p-6 sticky top-24">
                 <h2 className="text-xl font-bold mb-4">Order Summary</h2>
                 
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-gray-700">
-                    <span>Items ({cart.total_items})</span>
-                    <span>${parseFloat(cart.total_price || 0).toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between text-gray-700">
-                    <span>Discount</span>
-                    <span className="text-green-600">-$0.00</span>
-                  </div>
-                  <div className="border-t pt-3">
-                    <div className="flex justify-between text-xl font-bold">
-                      <span>Total</span>
-                      <span className="text-purple-600">${parseFloat(cart.total_price || 0).toFixed(2)}</span>
-                    </div>
-                  </div>
-                </div>
+             <div className="space-y-3 mb-6">
+  <div className="flex justify-between text-gray-700">
+    <span>Items ({cart.total_items})</span>
+    <span>${cart.total.toFixed(2)}</span>
+  </div>
+
+  <div className="flex justify-between text-gray-700">
+    <span>Discount</span>
+    <span className="text-green-600">-$0.00</span>
+  </div>
+
+  <div className="border-t pt-3">
+    <div className="flex justify-between text-xl font-bold">
+      <span>Total</span>
+      <span className="text-purple-600">
+        ${Number(cart.total_price || 0).toFixed(2)}
+      </span>
+    </div>
+  </div>
+</div>
+
 
                 <button
                   onClick={handleCheckout}
